@@ -3,7 +3,9 @@ import numpy as np
 import matplotlib.pyplot as plt
 import pickle
 import scipy.optimize as opt
+import sys
 
+sys.setrecursionlimit(2000000)
 
 class Ising:
     grid = None
