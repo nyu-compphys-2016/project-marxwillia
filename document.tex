@@ -125,6 +125,15 @@ Figure \ref{fig:cantor} illustrates the Cantor compression scheme. The $(x,y)$ p
 \section{Sanity Check}
 In this section we provide basic checks that our code works. First we show using the Wolff algorithm that we find the correct critical temperatures for the dimensions referenced in the table at the beginning of the paper. We use 10 points per dimension in the following plots.
 
+
+\begin{figure*}[htb!]
+	\centering \includegraphics[width=\linewidth]{1D_Wolff.pdf}
+	\caption{Plot showing the expectation value of the absolute value of the Magnetization per spin on a 1D lattice. There is no sudden macroscopic change in the magnetization per spin.}
+	\label{fig:wolff1}
+\end{figure*}
+
+Figure \ref{fig:wolff1} shows the expected absolute magnetization per spin as a function of temperature. In this case, there is no sharp change in the macroscopic variable as a function of temperature, as expected.
+
 \begin{figure*}[htb!]
 	\centering \includegraphics[width=\linewidth]{2D_Wolff.pdf}
 	\caption{Plot showing the expectation value of the absolute value of the Magnetization per spin on a 2D lattice. The red line is a least squares fitted logistic function.}
@@ -150,5 +159,10 @@ Using this, for 2D we find that $T_{c}=2.27$, which exactly matches the true val
 
 Figure \ref{fig:wolff3} shows a plot of the expected absolute magnetization per spin of the 3 dimensional Ising model. In this case, we see that the critical temperature has increased, as expected. Using the logistic fit and the analytic expression for the inflection point, we find that $T_{c}=4.3$, which is quite close to the expected result of 4.51. 
 
+The 4 dimensional Ising model proved to be too expensive to run on my computer for non trivially sized lattices.
+
+
+\section{Summary}
+In this project, we implemented dimension general code to run Markov Chain Monte Carlo simulations of Ising models. We implemented the three most common configuration update methods: Metropolis, Swendsen-Wang, and Wolff. We conduct basic sanity checks to show that our implementation is correct and robust. In the future, we will explore parallelization in arbitrary dimensions to increase the speed of our code. The 4 dimensional Ising model was very difficult to run for nontrivial sized lattices, and parallelization would greatly help. Progress was made on parallelizing the 1D case, but the generalization proved too difficult for the scope of this project.
 
 \end{document}
