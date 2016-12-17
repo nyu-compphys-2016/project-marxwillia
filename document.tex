@@ -123,7 +123,32 @@ One of the more difficult challenges of this project was to make the \texttt{Isi
 Figure \ref{fig:cantor} illustrates the Cantor compression scheme. The $(x,y)$ position of each point on the lattice is a 2-tuple, while the integer displayed above each point provides a unique 1-tuple label.
 
 \section{Sanity Check}
-In this section we provide basic checks that our code works.
+In this section we provide basic checks that our code works. First we show using the Wolff algorithm that we find the correct critical temperatures for the dimensions referenced in the table at the beginning of the paper. We use 10 points per dimension in the following plots.
+
+\begin{figure*}[htb!]
+	\centering \includegraphics[width=\linewidth]{2D_Wolff.pdf}
+	\caption{Plot showing the expectation value of the absolute value of the Magnetization per spin on a 2D lattice. The red line is a least squares fitted logistic function.}
+	\label{fig:wolff2}
+\end{figure*}
+
+Figure \ref{fig:wolff2} shows the expected absolute magnetization per spin in the 2D Ising model. The red line shows the logistic function fit which takes the form...
+\begin{center}
+	$f(T)=A+\frac{K-A}{(1+Q\exp(-B(T-M)))}$
+\end{center}
+which we can use to analytically find the inflection point, $T_{c}$, by differentiating twice...
+\begin{center}
+	$T_{c}=\frac{BM-\log\left(\frac{1}{Q}\right)}{B}$
+\end{center}
+
+Using this, for 2D we find that $T_{c}=2.27$, which exactly matches the true value. We obtain similar plots for the Metropolis and Swendsen-Wang algorithms, so we are confident that the \texttt{Ising} package correctly handles 2 dimensional Ising models.
+
+\begin{figure*}[htb!]
+	\centering \includegraphics[width=\linewidth]{3D_Wolff.pdf}
+	\caption{Plot showing the expectation value of the absolute value of the Magnetization per spin on a 3D lattice. The red line is a least squares fitted logistic function.}
+	\label{fig:wolff3}
+\end{figure*}
+
+Figure \ref{fig:wolff3} shows a plot of the expected absolute magnetization per spin of the 3 dimensional Ising model. In this case, we see that the critical temperature has increased, as expected. Using the logistic fit and the analytic expression for the inflection point, we find that $T_{c}=4.3$, which is quite close to the expected result of 4.51. 
 
 
 \end{document}

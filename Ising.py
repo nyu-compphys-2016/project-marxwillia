@@ -34,8 +34,8 @@ class Ising:
 
 
     def mcmc_macros(self):
-        expected_mag = np.mean(np.fabs(self.Mag_markov_chain))
-        expected_energy = np.mean(self.Energy_markov_chain)
+ #       expected_mag = np.mean(np.fabs(self.Mag_markov_chain))
+#        expected_energy = np.mean(self.Energy_markov_chain)
         #energy
 
         self.mean_mag.append(expected_mag)
